@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const navItems = [
-  { path: '/vendor/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/vendor/products', icon: '🪑', label: 'My Products' },
-  { path: '/vendor/products/add', icon: '➕', label: 'Add Product' },
-  { path: '/vendor/orders', icon: '📦', label: 'Orders' },
-  { path: '/vendor/earnings', icon: '💰', label: 'Earnings' },
-  { path: '/vendor/profile', icon: '🏪', label: 'Shop Profile' },
+  { path: '/dashboard', icon: '📊', label: 'Dashboard' },
+  { path: '/products', icon: '🪑', label: 'My Products' },
+  { path: '/products/add', icon: '➕', label: 'Add Product' },
+  { path: '/orders', icon: '📦', label: 'Orders' },
+  { path: '/earnings', icon: '💰', label: 'Earnings' },
+  { path: '/profile', icon: '🏪', label: 'Shop Profile' },
 ];
 
 export const VendorLayout = ({ children }) => {

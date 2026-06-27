@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const navItems = [
-  { path: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/admin/vendors', icon: '🏪', label: 'Vendors' },
-  { path: '/admin/products', icon: '🪑', label: 'Products' },
-  { path: '/admin/orders', icon: '📦', label: 'Orders' },
-  { path: '/admin/users', icon: '👥', label: 'Users' },
-  { path: '/admin/categories', icon: '📂', label: 'Categories' },
-  { path: '/admin/payouts', icon: '💸', label: 'Payouts' },
+  { path: '/dashboard', icon: '📊', label: 'Dashboard' },
+  { path: '/vendors', icon: '🏪', label: 'Vendors' },
+  { path: '/products', icon: '🪑', label: 'Products' },
+  { path: '/orders', icon: '📦', label: 'Orders' },
+  { path: '/users', icon: '👥', label: 'Users' },
+  { path: '/categories', icon: '📂', label: 'Categories' },
+  { path: '/payouts', icon: '💸', label: 'Payouts' },
 ];
 
 export const AdminLayout = ({ children }) => {

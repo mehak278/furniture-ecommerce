@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { VendorLayout } from '../../layouts/VendorLayout';
@@ -59,13 +59,13 @@ export const VendorDashboard = () => {
         <div style={{ background: '#fff', borderRadius: '12px', padding: '20px', marginBottom: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
           <h3 style={{ margin: '0 0 16px', color: '#2c1a0e', fontSize: '16px' }}>Quick Actions</h3>
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <Link to="/vendor/products/add" style={{ background: '#d4a054', color: '#fff', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+            <Link to="/products/add" style={{ background: '#d4a054', color: '#fff', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
               ➕ Add New Product
             </Link>
-            <Link to="/vendor/orders" style={{ background: '#fff', color: '#d4a054', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', border: '1px solid #d4a054', fontWeight: 600 }}>
+            <Link to="/orders" style={{ background: '#fff', color: '#d4a054', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', border: '1px solid #d4a054', fontWeight: 600 }}>
               📦 View Orders
             </Link>
-            <Link to="/vendor/earnings" style={{ background: '#fff', color: '#22c55e', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', border: '1px solid #22c55e', fontWeight: 600 }}>
+            <Link to="/earnings" style={{ background: '#fff', color: '#22c55e', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', border: '1px solid #22c55e', fontWeight: 600 }}>
               💰 Earnings
             </Link>
           </div>
@@ -75,7 +75,7 @@ export const VendorDashboard = () => {
         <div style={{ background: '#fff', borderRadius: '12px', padding: '20px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
             <h3 style={{ margin: 0, color: '#2c1a0e', fontSize: '16px' }}>Recent Orders</h3>
-            <Link to="/vendor/orders" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>View All →</Link>
+            <Link to="/orders" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>View All →</Link>
           </div>
           {recentOrders.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '40px', color: '#aaa' }}>

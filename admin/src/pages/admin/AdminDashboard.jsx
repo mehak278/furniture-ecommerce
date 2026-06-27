@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { AdminLayout } from '../../layouts/AdminLayout';
@@ -40,31 +40,31 @@ export const AdminDashboard = () => {
         {stats.pendingVendors > 0 && (
           <div style={{ background: '#fef3c7', border: '1px solid #fcd34d', borderRadius: '10px', padding: '12px 16px', marginBottom: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: '#92400e', fontSize: '14px' }}>⚠️ <strong>{stats.pendingVendors}</strong> vendor application(s) pending approval</span>
-            <Link to="/admin/vendors" style={{ color: '#92400e', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>Review →</Link>
+            <Link to="/vendors" style={{ color: '#92400e', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>Review →</Link>
           </div>
         )}
         {stats.pendingProducts > 0 && (
           <div style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '10px', padding: '12px 16px', marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ color: '#1e40af', fontSize: '14px' }}>🪑 <strong>{stats.pendingProducts}</strong> product(s) waiting for approval</span>
-            <Link to="/admin/products" style={{ color: '#1e40af', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>Review →</Link>
+            <Link to="/products" style={{ color: '#1e40af', fontWeight: 700, fontSize: '13px', textDecoration: 'none' }}>Review →</Link>
           </div>
         )}
 
         {/* Stats Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '28px' }}>
-          <StatCard icon="💰" label="Total Revenue" value={`PKR ${stats.totalRevenue?.toLocaleString() || 0}`} color="#22c55e" link="/admin/orders" />
-          <StatCard icon="📦" label="Total Orders" value={stats.totalOrders || 0} color="#4f9cf9" link="/admin/orders" />
-          <StatCard icon="👥" label="Total Users" value={stats.totalUsers || 0} color="#a855f7" link="/admin/users" />
-          <StatCard icon="🏪" label="Total Vendors" value={stats.totalVendors || 0} color="#f59e0b" link="/admin/vendors" />
-          <StatCard icon="🪑" label="Total Products" value={stats.totalProducts || 0} color="#ec4899" link="/admin/products" />
-          <StatCard icon="⏳" label="Pending Approvals" value={(stats.pendingVendors || 0) + (stats.pendingProducts || 0)} color="#ef4444" link="/admin/vendors" />
+          <StatCard icon="💰" label="Total Revenue" value={`PKR ${stats.totalRevenue?.toLocaleString() || 0}`} color="#22c55e" link="/orders" />
+          <StatCard icon="📦" label="Total Orders" value={stats.totalOrders || 0} color="#4f9cf9" link="/orders" />
+          <StatCard icon="👥" label="Total Users" value={stats.totalUsers || 0} color="#a855f7" link="/users" />
+          <StatCard icon="🏪" label="Total Vendors" value={stats.totalVendors || 0} color="#f59e0b" link="/vendors" />
+          <StatCard icon="🪑" label="Total Products" value={stats.totalProducts || 0} color="#ec4899" link="/products" />
+          <StatCard icon="⏳" label="Pending Approvals" value={(stats.pendingVendors || 0) + (stats.pendingProducts || 0)} color="#ef4444" link="/vendors" />
         </div>
 
         {/* Recent Orders */}
         <div style={{ background: '#fff', borderRadius: '12px', padding: '24px', boxShadow: '0 2px 8px rgba(0,0,0,0.06)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
             <h3 style={{ margin: 0, color: '#1a1f2e', fontSize: '16px' }}>Recent Orders</h3>
-            <Link to="/admin/orders" style={{ color: '#4f9cf9', fontSize: '13px', textDecoration: 'none' }}>View All →</Link>
+            <Link to="/orders" style={{ color: '#4f9cf9', fontSize: '13px', textDecoration: 'none' }}>View All →</Link>
           </div>
           {recentOrders.length === 0 ? (
             <p style={{ color: '#aaa', textAlign: 'center', padding: '24px' }}>No orders yet</p>

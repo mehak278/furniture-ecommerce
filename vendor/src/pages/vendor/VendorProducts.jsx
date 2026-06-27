@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { VendorLayout } from '../../layouts/VendorLayout';
@@ -45,7 +45,7 @@ export const VendorProducts = () => {
       <div style={{ maxWidth: '1100px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <p style={{ margin: 0, color: '#888', fontSize: '14px' }}>{products.length} products total</p>
-          <Link to="/vendor/products/add" style={{ background: '#d4a054', color: '#fff', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
+          <Link to="/products/add" style={{ background: '#d4a054', color: '#fff', padding: '10px 20px', borderRadius: '8px', textDecoration: 'none', fontSize: '14px', fontWeight: 600 }}>
             ➕ Add Product
           </Link>
         </div>
