@@ -1,0 +1,70 @@
+:root {
+  /* Fonts */
+  --font-primary: 'Outfit', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+
+  /* Color Palette - Premium Warm Minimalist Furniture Theme */
+  --color-primary: #8C6239; /* Rich Amber Wood */
+  --color-primary-light: #A77A50;
+  --color-primary-dark: #6E4A28;
+  --color-secondary: #2C2C2C; /* Sophisticated Charcoal */
+  --color-accent: #D4AF37; /* Brass / Gold Accent */
+  
+  /* Neutral Palette */
+  --color-bg: #FDFBF7; /* Soft Off-White Linen */
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #F4EFEB;
+  --color-border: #E6DFD9;
+  
+  /* Text */
+  --color-text: #2A2421;
+  --color-text-muted: #70635C;
+  --color-text-light: #FFFFFF;
+
+  /* Semantic Colors */
+  --color-success: #4E8752;
+  --color-error: #B84A39;
+  --color-warning: #D9A036;
+  --color-info: #3B7FB9;
+
+  /* Glassmorphism & UI Tokens */
+  --blur-amount: 12px;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(140, 98, 57, 0.08);
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(44, 44, 44, 0.04);
+  --shadow-md: 0 8px 24px rgba(140, 98, 57, 0.08);
+  --shadow-lg: 0 16px 40px rgba(140, 98, 57, 0.12);
+
+  /* Border Radii */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Animations */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --max-width: 1280px;
+  --header-height: 80px;
+}
+
+/* Dark Mode Overrides (Optional toggle) */
+[data-theme='dark'] {
+  --color-bg: #12100E;
+  --color-surface: #1E1B18;
+  --color-surface-soft: #2A2420;
+  --color-border: #3A322C;
+  --color-text: #F5EDE6;
+  --color-text-muted: #A39387;
+  --glass-bg: rgba(30, 27, 24, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.3);
+}

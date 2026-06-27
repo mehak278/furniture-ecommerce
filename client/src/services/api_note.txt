@@ -1,0 +1,5 @@
+const axios = require('axios');
+// In Vite/React client we write standard ESM javascript so we'll use import/export:
+// Let's write standard ESM syntax for the frontend since it is compiled by Vite!
+// Yes, Vite uses ESM, so we use `import axios from 'axios'` instead of `require`.
+// Let's write it in ESM.
