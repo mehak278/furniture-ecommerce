@@ -31,6 +31,13 @@ const userSchema = new mongoose.Schema(
       enum: ['user', 'vendor', 'admin'],
       default: 'user',
     },
+    age: {
+      type: Number,
+    },
+    gender: {
+      type: String,
+      enum: ['Male', 'Female', 'Other'],
+    },
     avatar: {
       type: String,
       default: '',

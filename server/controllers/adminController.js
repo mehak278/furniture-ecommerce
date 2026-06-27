@@ -155,10 +155,8 @@ exports.rejectVendor = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Vendor application not found' });
     }
 
-    vendor.status = 'pending'; // or let's create a custom flow, but delete is fine or keep status suspended/rejected.
-    // Let's set status to suspended/pending or delete. We'll set to rejected (let's add 'rejected' to Vendor.js status, wait, Vendor.js has ["pending", "approved", "suspended"]. So let's delete or set to suspended).
-    // Let's set status to suspended as rejected equivalent, or just delete it. We'll delete it to let them re-apply.
-    await Vendor.findByIdAndDelete(req.params.id);
+    vendor.status = 'suspended';
+    await vendor.save();
 
     // Notify user
     await Notification.create({
@@ -168,7 +166,7 @@ exports.rejectVendor = async (req, res) => {
       message: 'Unfortunately, your vendor application was rejected. Please review your details and re-apply.',
     });
 
-    res.status(200).json({ success: true, message: 'Vendor application rejected and removed' });
+    res.status(200).json({ success: true, message: 'Vendor application rejected successfully', vendor });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
   }

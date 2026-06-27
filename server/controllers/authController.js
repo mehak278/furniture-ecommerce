@@ -11,7 +11,7 @@ const sendEmail = require('../utils/sendEmail');
 // @access  Public
 exports.register = async (req, res) => {
   try {
-    const { name, email, password, phone } = req.body;
+    const { name, email, password, phone, age, gender } = req.body;
 
     // Check if user exists
     const userExists = await User.findOne({ email });
@@ -25,6 +25,8 @@ exports.register = async (req, res) => {
       email,
       password,
       phone,
+      age,
+      gender,
     });
 
     // Create empty cart & wishlist for user
@@ -52,6 +54,8 @@ exports.register = async (req, res) => {
         email: user.email,
         phone: user.phone,
         role: user.role,
+        age: user.age,
+        gender: user.gender,
         avatar: user.avatar,
       },
     });

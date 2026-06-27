@@ -27,8 +27,15 @@ const vendorSchema = new mongoose.Schema(
     },
     businessType: {
       type: String,
-      enum: ['Individual', 'Company'],
       required: [true, 'Please specify business type'],
+    },
+    hasPhysicalStore: {
+      type: Boolean,
+      default: false,
+    },
+    storeAddress: {
+      type: String,
+      default: '',
     },
     businessDocuments: {
       type: String, // URL to document (CNIC, etc.)

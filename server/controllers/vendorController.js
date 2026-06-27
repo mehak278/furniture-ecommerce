@@ -10,7 +10,7 @@ const Review = require('../models/Review');
 // @access  Private
 exports.registerVendor = async (req, res) => {
   try {
-    const { shopName, shopDescription, businessType, businessDocuments, bankDetails } = req.body;
+    const { shopName, shopDescription, businessType, hasPhysicalStore, storeAddress, businessDocuments, bankDetails } = req.body;
 
     const vendorExists = await Vendor.findOne({ shopName });
     if (vendorExists) {
@@ -30,6 +30,8 @@ exports.registerVendor = async (req, res) => {
       shopName,
       shopDescription,
       businessType,
+      hasPhysicalStore,
+      storeAddress,
       businessDocuments,
       bankDetails,
       status: 'pending',
