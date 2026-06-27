@@ -92,7 +92,7 @@ export const VendorLayout = ({ children }) => {
           <h2 style={{ margin: 0, fontSize: '18px', color: '#2c1a0e' }}>
             {navItems.find(n => n.path === location.pathname)?.icon} {navItems.find(n => n.path === location.pathname)?.label || 'Vendor Panel'}
           </h2>
-          <Link to="/" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>← View Store</Link>
+          <a href="/" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>← View Store</a>
         </div>
         <div style={{ padding: '24px' }}>
           {children}

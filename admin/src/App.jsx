@@ -35,7 +35,7 @@ const AdminRoute = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/admin">
       <AuthProvider>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Routes>

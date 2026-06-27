@@ -169,7 +169,7 @@ export const Navbar = () => {
 
                   {user?.role === 'vendor' && (
                     <a
-                      href="http://localhost:3002"
+                      href="/vendor"
                       style={navStyles.dropdownItem}
                       onClick={() => setDropdownOpen(false)}
                     >
@@ -179,7 +179,7 @@ export const Navbar = () => {
 
                   {user?.role === 'admin' && (
                     <a
-                      href="http://localhost:3001"
+                      href="/admin"
                       style={navStyles.dropdownItem}
                       onClick={() => setDropdownOpen(false)}
                     >

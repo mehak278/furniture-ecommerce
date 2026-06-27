@@ -34,7 +34,7 @@ const VendorRoute = () => {
 
 function App() {
   return (
-    <Router>
+    <Router basename="/vendor">
       <AuthProvider>
         <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
           <Routes>
