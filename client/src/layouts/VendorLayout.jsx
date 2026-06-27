@@ -3,12 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const navItems = [
-  { path: '/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/products', icon: '🪑', label: 'My Products' },
-  { path: '/products/add', icon: '➕', label: 'Add Product' },
-  { path: '/orders', icon: '📦', label: 'Orders' },
-  { path: '/earnings', icon: '💰', label: 'Earnings' },
-  { path: '/profile', icon: '🏪', label: 'Shop Profile' },
+  { path: '/vendor/dashboard', icon: '📊', label: 'Dashboard' },
+  { path: '/vendor/products', icon: '🪑', label: 'My Products' },
+  { path: '/vendor/products/add', icon: '➕', label: 'Add Product' },
+  { path: '/vendor/orders', icon: '📦', label: 'Orders' },
+  { path: '/vendor/earnings', icon: '💰', label: 'Earnings' },
+  { path: '/vendor/profile', icon: '🏪', label: 'Shop Profile' },
 ];
 
 export const VendorLayout = ({ children }) => {
@@ -19,7 +19,7 @@ export const VendorLayout = ({ children }) => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate('/vendor/login');
   };
 
   return (
@@ -92,7 +92,7 @@ export const VendorLayout = ({ children }) => {
           <h2 style={{ margin: 0, fontSize: '18px', color: '#2c1a0e' }}>
             {navItems.find(n => n.path === location.pathname)?.icon} {navItems.find(n => n.path === location.pathname)?.label || 'Vendor Panel'}
           </h2>
-          <a href="/" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>← View Store</a>
+          <Link to="/" style={{ color: '#d4a054', fontSize: '13px', textDecoration: 'none' }}>← View Store</Link>
         </div>
         <div style={{ padding: '24px' }}>
           {children}

@@ -168,23 +168,23 @@ export const Navbar = () => {
                   </Link>
 
                   {user?.role === 'vendor' && (
-                    <a
-                      href="/vendor"
+                    <Link
+                      to="/vendor"
                       style={navStyles.dropdownItem}
                       onClick={() => setDropdownOpen(false)}
                     >
                       <LayoutDashboard size={16} /> Vendor Panel
-                    </a>
+                    </Link>
                   )}
 
                   {user?.role === 'admin' && (
-                    <a
-                      href="/admin"
+                    <Link
+                      to="/admin"
                       style={navStyles.dropdownItem}
                       onClick={() => setDropdownOpen(false)}
                     >
                       <LayoutDashboard size={16} /> Admin Panel
-                    </a>
+                    </Link>
                   )}
 
                   <div

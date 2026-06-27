@@ -37,7 +37,7 @@ export const AddProductPage = () => {
     try {
       await api.post('/products', form);
       toast.success('Product added! Waiting for admin approval.');
-      navigate('/products');
+      navigate('/vendor/products');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Failed to add product');
     } finally {
@@ -153,7 +153,7 @@ export const AddProductPage = () => {
             <button type="submit" disabled={loading} style={{ background: '#d4a054', color: '#fff', border: 'none', padding: '14px 32px', borderRadius: '8px', fontSize: '15px', fontWeight: 700, cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1 }}>
               {loading ? 'Adding...' : '✅ Add Product'}
             </button>
-            <button type="button" onClick={() => navigate('/products')} style={{ background: '#fff', color: '#888', border: '1px solid #ddd', padding: '14px 24px', borderRadius: '8px', fontSize: '15px', cursor: 'pointer' }}>
+            <button type="button" onClick={() => navigate('/vendor/products')} style={{ background: '#fff', color: '#888', border: '1px solid #ddd', padding: '14px 24px', borderRadius: '8px', fontSize: '15px', cursor: 'pointer' }}>
               Cancel
             </button>
           </div>

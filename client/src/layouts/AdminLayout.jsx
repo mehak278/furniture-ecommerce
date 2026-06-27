@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const navItems = [
-  { path: '/dashboard', icon: '📊', label: 'Dashboard' },
-  { path: '/vendors', icon: '🏪', label: 'Vendors' },
-  { path: '/products', icon: '🪑', label: 'Products' },
-  { path: '/orders', icon: '📦', label: 'Orders' },
-  { path: '/users', icon: '👥', label: 'Users' },
-  { path: '/categories', icon: '📂', label: 'Categories' },
-  { path: '/payouts', icon: '💸', label: 'Payouts' },
+  { path: '/admin/dashboard', icon: '📊', label: 'Dashboard' },
+  { path: '/admin/vendors', icon: '🏪', label: 'Vendors' },
+  { path: '/admin/products', icon: '🪑', label: 'Products' },
+  { path: '/admin/orders', icon: '📦', label: 'Orders' },
+  { path: '/admin/users', icon: '👥', label: 'Users' },
+  { path: '/admin/categories', icon: '📂', label: 'Categories' },
+  { path: '/admin/payouts', icon: '💸', label: 'Payouts' },
 ];
 
 export const AdminLayout = ({ children }) => {
@@ -20,7 +20,7 @@ export const AdminLayout = ({ children }) => {
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate('/admin/login');
   };
 
   return (
@@ -93,7 +93,7 @@ export const AdminLayout = ({ children }) => {
           <h2 style={{ margin: 0, fontSize: '18px', color: '#1a1f2e' }}>
             {navItems.find(n => n.path === location.pathname)?.icon} {navItems.find(n => n.path === location.pathname)?.label || 'Admin Panel'}
           </h2>
-          <a href="/" style={{ color: '#4f9cf9', fontSize: '13px', textDecoration: 'none' }}>← View Store</a>
+          <Link to="/" style={{ color: '#4f9cf9', fontSize: '13px', textDecoration: 'none' }}>← View Store</Link>
         </div>
         <div style={{ padding: '24px' }}>
           {children}
