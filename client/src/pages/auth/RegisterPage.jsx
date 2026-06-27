@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 
 export const RegisterPage = () => {
+  usePageTitle('Register');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -132,3 +134,4 @@ export const RegisterPage = () => {
     </div>
   );
 };
+

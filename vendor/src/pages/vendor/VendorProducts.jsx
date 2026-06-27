@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { VendorLayout } from '../../layouts/VendorLayout';
 import api from '../../services/api';
@@ -11,6 +12,7 @@ const statusBadge = (status) => {
 };
 
 export const VendorProducts = () => {
+  usePageTitle('My Products');
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -100,3 +102,4 @@ export const VendorProducts = () => {
     </VendorLayout>
   );
 };
+

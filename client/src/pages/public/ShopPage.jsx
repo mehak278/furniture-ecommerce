@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { useSearchParams } from 'react-router-dom';
 import { ProductCard } from '../../components/product/ProductCard';
 import api from '../../services/api';
 import { SlidersHorizontal, ArrowUpDown } from 'lucide-react';
 
 export const ShopPage = () => {
+  usePageTitle('Shop Furniture');
   const [searchParams, setSearchParams] = useSearchParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -345,3 +347,4 @@ export const ShopPage = () => {
     </div>
   );
 };
+

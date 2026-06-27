@@ -1,10 +1,12 @@
-import React from 'react';
+﻿import React from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import { Trash2, ShoppingBag, ArrowRight } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const CartPage = () => {
+  usePageTitle('My Cart');
   const { cart, cartSubtotal, updateCartItem, removeFromCart, clearCart } = useCart();
   const navigate = useNavigate();
 
@@ -226,3 +228,4 @@ export const CartPage = () => {
     </div>
   );
 };
+

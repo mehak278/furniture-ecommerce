@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import toast from 'react-hot-toast';
 
 export const LoginPage = () => {
+  usePageTitle('Login');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [submitting, setSubmitting] = useState(false);
@@ -24,7 +26,15 @@ export const LoginPage = () => {
 
     if (result.success) {
       toast.success('Successfully logged in!');
-      navigate('/');
+      const savedUser = JSON.parse(localStorage.getItem('user'));
+      const role = savedUser?.role;
+      if (role === 'admin') {
+        navigate('/admin');
+      } else if (role === 'vendor') {
+        navigate('/vendor');
+      } else {
+        navigate('/user/dashboard');
+      }
     } else {
       toast.error(result.message);
     }
@@ -111,3 +121,4 @@ export const LoginPage = () => {
     </div>
   );
 };
+

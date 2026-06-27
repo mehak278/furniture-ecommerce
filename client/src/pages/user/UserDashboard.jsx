@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { useAuth } from '../../hooks/useAuth';
 import api from '../../services/api';
 import { Package, User, MapPin, Key, CheckCircle, RefreshCcw } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const UserDashboard = () => {
+  usePageTitle('My Dashboard');
   const { user, updateProfile } = useAuth();
   
   const [orders, setOrders] = useState([]);
@@ -300,3 +302,4 @@ export const UserDashboard = () => {
     </div>
   );
 };
+

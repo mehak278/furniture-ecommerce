@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { VendorLayout } from '../../layouts/VendorLayout';
 import api from '../../services/api';
@@ -17,6 +18,7 @@ const StatCard = ({ icon, label, value, color, sub }) => (
 );
 
 export const VendorDashboard = () => {
+  usePageTitle('Vendor Dashboard');
   const [stats, setStats] = useState({ totalSales: 0, totalOrders: 0, pendingOrders: 0, totalProducts: 0, pendingPayout: 0, rating: 0 });
   const [recentOrders, setRecentOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -111,3 +113,4 @@ export const VendorDashboard = () => {
     </VendorLayout>
   );
 };
+

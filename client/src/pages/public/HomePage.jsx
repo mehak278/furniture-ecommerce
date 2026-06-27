@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { Link } from 'react-router-dom';
 import { ProductCard } from '../../components/product/ProductCard';
 import api from '../../services/api';
@@ -6,6 +7,7 @@ import { Sofa, Bed, Briefcase, Utensils, ShieldCheck, Truck, RefreshCw, Star } f
 import toast from 'react-hot-toast';
 
 export const HomePage = () => {
+  usePageTitle('Home');
   const [featuredProducts, setFeaturedProducts] = useState([]);
   const [newArrivals, setNewArrivals] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -278,3 +280,4 @@ export const HomePage = () => {
     </div>
   );
 };
+

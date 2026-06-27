@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
+import usePageTitle from '../../hooks/usePageTitle';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import api from '../../services/api';
@@ -6,6 +7,7 @@ import { MapPin, Calendar, CreditCard, CheckCircle, Ticket, Check } from 'lucide
 import toast from 'react-hot-toast';
 
 export const CheckoutPage = () => {
+  usePageTitle('Checkout');
   const { cart, cartSubtotal, clearCart } = useCart();
   const navigate = useNavigate();
 
@@ -648,3 +650,4 @@ export const CheckoutPage = () => {
     </div>
   );
 };
+
