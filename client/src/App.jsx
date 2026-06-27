@@ -15,6 +15,7 @@ import { RegisterPage } from './pages/customer/RegisterPage';
 import { CartPage } from './pages/customer/CartPage';
 import { CheckoutPage } from './pages/customer/CheckoutPage';
 import { UserDashboard } from './pages/customer/UserDashboard';
+import { BecomeVendorPage } from './pages/customer/BecomeVendorPage';
 
 // Admin Pages (Imported from admin directory)
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
@@ -63,6 +64,7 @@ function App() {
             <Route path="/product/:slug" element={<CustomerLayout><ProductDetailPage /></CustomerLayout>} />
             <Route path="/login" element={<CustomerLayout><LoginPage /></CustomerLayout>} />
             <Route path="/register" element={<CustomerLayout><RegisterPage /></CustomerLayout>} />
+            <Route path="/become-vendor" element={<CustomerLayout><BecomeVendorPage /></CustomerLayout>} />
 
             {/* Protected Customer User Dashboard */}
             <Route element={<ProtectedRoute />}>
