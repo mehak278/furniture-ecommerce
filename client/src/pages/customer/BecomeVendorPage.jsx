@@ -78,7 +78,7 @@ export const BecomeVendorPage = () => {
     }
 
     setSubmittingUser(true);
-    const res = await register(name, email, password, phone, Number(age), gender);
+    const res = await register(name, email, password, phone, Number(age), gender, 'vendor');
     setSubmittingUser(false);
 
     if (res.success) {

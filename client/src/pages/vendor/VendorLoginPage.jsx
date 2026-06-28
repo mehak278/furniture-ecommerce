@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import usePageTitle from '../../hooks/usePageTitle';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -39,11 +39,23 @@ export const VendorLoginPage = () => {
       return;
     }
 
-    // Approved vendor — go to dashboard
+    // Approved vendor — check if active/approved or redirect to become-vendor
     if (savedUser?.role === 'vendor') {
-      setSubmitting(false);
-      toast.success('Welcome back!');
-      navigate('/vendor/dashboard');
+      try {
+        await api.get('/vendor/dashboard');
+        setSubmitting(false);
+        toast.success('Welcome back!');
+        navigate('/vendor/dashboard');
+      } catch (err) {
+        setSubmitting(false);
+        if (err.response?.status === 403) {
+          toast.success('Welcome! Redirecting to application status...');
+          navigate('/become-vendor');
+        } else {
+          // On other errors, let route guard handle it
+          navigate('/vendor/dashboard');
+        }
+      }
       return;
     }
 
