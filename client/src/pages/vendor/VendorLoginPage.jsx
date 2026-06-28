@@ -2,6 +2,7 @@
 import usePageTitle from '../../hooks/usePageTitle';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import api from '../../services/api';
 import toast from 'react-hot-toast';
 
 export const VendorLoginPage = () => {
@@ -22,21 +23,48 @@ export const VendorLoginPage = () => {
 
     setSubmitting(true);
     const result = await login(email, password);
-    setSubmitting(false);
 
-    if (result.success) {
-      const savedUser = JSON.parse(localStorage.getItem('user'));
-      if (savedUser?.role === 'vendor' || savedUser?.role === 'admin') {
-        toast.success('Vendor login successful!');
-        navigate('/vendor');
+    if (!result.success) {
+      setSubmitting(false);
+      toast.error(result.message);
+      return;
+    }
+
+    const savedUser = JSON.parse(localStorage.getItem('user'));
+
+    // Admin can always access vendor portal
+    if (savedUser?.role === 'admin') {
+      setSubmitting(false);
+      navigate('/vendor/dashboard');
+      return;
+    }
+
+    // Approved vendor — go to dashboard
+    if (savedUser?.role === 'vendor') {
+      setSubmitting(false);
+      toast.success('Welcome back!');
+      navigate('/vendor/dashboard');
+      return;
+    }
+
+    // Role is 'user' — check if they have a pending vendor application
+    try {
+      const { data } = await api.get('/vendor/my-status');
+      setSubmitting(false);
+      if (data.hasApplication) {
+        // Application submitted but not yet approved — show pending page
+        navigate('/vendor/pending');
       } else {
-        // Log them out if they are not a vendor
+        // Not a vendor at all
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        toast.error('Access Denied: Only registered vendors can log in here.');
+        toast.error('You do not have a vendor account. Apply first.');
       }
-    } else {
-      toast.error(result.message);
+    } catch {
+      setSubmitting(false);
+      localStorage.removeItem('token');
+      localStorage.removeItem('user');
+      toast.error('Access denied. Only vendors can login here.');
     }
   };
 

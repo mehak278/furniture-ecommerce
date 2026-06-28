@@ -1,6 +1,7 @@
 const express = require('express');
 const {
   registerVendor,
+  checkVendorStatus,
   getVendorDashboard,
   getVendorProducts,
   getVendorEarnings,
@@ -17,6 +18,9 @@ router.use(protect);
 
 // Registration is accessible to normal users who want to apply
 router.post('/register', registerVendor);
+
+// Check if current user has a vendor application (any role can call this)
+router.get('/my-status', checkVendorStatus);
 
 // All other routes require Vendor verification
 router.get('/dashboard', isVendor, getVendorDashboard);

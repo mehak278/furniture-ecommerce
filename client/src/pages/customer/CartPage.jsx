@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import usePageTitle from '../../hooks/usePageTitle';
 import { Link, useNavigate } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
@@ -137,7 +137,14 @@ export const CartPage = () => {
                   {item.material && <span>Material: {item.material}</span>}
                 </p>
                 <span style={{ fontSize: '12px', color: 'var(--color-primary)', fontWeight: 500 }}>
-                  Sold by: {item.product?.vendor?.shopName || 'Verified Vendor'}
+                  Sold by:{' '}
+                  {item.product?.vendor ? (
+                    <Link to={`/store/${item.product.vendor._id || item.product.vendor}`} style={{ textDecoration: 'underline', color: 'var(--color-primary)' }}>
+                      {item.product.vendor.shopName || 'Showroom'}
+                    </Link>
+                  ) : (
+                    'Verified Vendor'
+                  )}
                 </span>
               </div>
 

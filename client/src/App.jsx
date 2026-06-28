@@ -16,6 +16,7 @@ import { CartPage } from './pages/customer/CartPage';
 import { CheckoutPage } from './pages/customer/CheckoutPage';
 import { UserDashboard } from './pages/customer/UserDashboard';
 import { BecomeVendorPage } from './pages/customer/BecomeVendorPage';
+import { VendorStorePage } from './pages/customer/VendorStorePage';
 
 // Admin Pages (Imported from admin directory)
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
@@ -29,6 +30,7 @@ import { AdminPayouts } from './pages/admin/AdminPayouts';
 
 // Vendor Pages (Imported from vendor directory)
 import { VendorLoginPage } from './pages/vendor/VendorLoginPage';
+import { VendorPendingPage } from './pages/vendor/VendorPendingPage';
 import { VendorDashboard } from './pages/vendor/VendorDashboard';
 import { VendorProducts } from './pages/vendor/VendorProducts';
 import { AddProductPage } from './pages/vendor/AddProductPage';
@@ -65,6 +67,7 @@ function App() {
             <Route path="/login" element={<CustomerLayout><LoginPage /></CustomerLayout>} />
             <Route path="/register" element={<CustomerLayout><RegisterPage /></CustomerLayout>} />
             <Route path="/become-vendor" element={<CustomerLayout><BecomeVendorPage /></CustomerLayout>} />
+            <Route path="/store/:id" element={<CustomerLayout><VendorStorePage /></CustomerLayout>} />
 
             {/* Protected Customer User Dashboard */}
             <Route element={<ProtectedRoute />}>
@@ -75,6 +78,7 @@ function App() {
 
             {/* ═══ VENDOR PORTAL (Independent layout with sidebar, no top Navbar) ═══ */}
             <Route path="/vendor/login" element={<VendorLoginPage />} />
+            <Route path="/vendor/pending" element={<VendorPendingPage />} />
             <Route path="/vendor" element={<Navigate to="/vendor/dashboard" replace />} />
             <Route element={<VendorRoute />}>
               <Route path="/vendor/dashboard" element={<VendorDashboard />} />

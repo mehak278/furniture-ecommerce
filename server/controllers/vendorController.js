@@ -47,6 +47,27 @@ exports.registerVendor = async (req, res) => {
   }
 };
 
+// @desc    Check if current user has a vendor application and its status
+// @route   GET /api/vendor/my-status
+// @access  Private
+exports.checkVendorStatus = async (req, res) => {
+  try {
+    const vendor = await Vendor.findOne({ user: req.user.id });
+    if (!vendor) {
+      return res.status(200).json({ success: true, hasApplication: false, status: null });
+    }
+    res.status(200).json({
+      success: true,
+      hasApplication: true,
+      status: vendor.status,
+      shopName: vendor.shopName,
+      submittedAt: vendor.createdAt,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
 // @desc    Get vendor dashboard analytics
 // @route   GET /api/vendor/dashboard
 // @access  Private/Vendor

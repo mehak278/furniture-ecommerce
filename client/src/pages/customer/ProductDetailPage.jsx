@@ -411,11 +411,18 @@ export const ProductDetailPage = () => {
             <div style={{ backgroundColor: 'var(--color-primary-light)', color: '#FFFFFF', padding: '12px', borderRadius: 'var(--radius-full)' }}>
               <User size={24} />
             </div>
-            <div>
+            <div style={{ flexGrow: 1 }}>
               <span style={{ fontSize: '12px', color: 'var(--color-text-muted)' }}>Sold by verified vendor</span>
-              <h5 style={{ fontSize: '16px', fontWeight: 600 }}>{product.vendor?.shopName}</h5>
+              <h5 style={{ fontSize: '16px', fontWeight: 600 }}>
+                <Link to={`/store/${product.vendor?._id}`} style={{ color: 'var(--color-primary)', textDecoration: 'none' }}>
+                  {product.vendor?.shopName}
+                </Link>
+              </h5>
               <p style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>Rating: {product.vendor?.rating || 4.8} ({product.vendor?.totalReviews || 12} sales)</p>
             </div>
+            <Link to={`/store/${product.vendor?._id}`} className="btn btn-outline" style={{ padding: '8px 16px', fontSize: '12px', textDecoration: 'none' }}>
+              Visit Showroom
+            </Link>
           </div>
         </div>
       </div>
